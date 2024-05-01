@@ -3,6 +3,11 @@ import express from 'express';
 import { authenticateJwt, SECRET } from "../middleware/";
 import { User } from "../db";
 import { signupInput } from "@100xdevs/common"
+import {z} from "zod"
+const signupSchema =z.object({
+username : z.string(),
+password : z.string().min(2)
+})
 
 const router = express.Router();
 
